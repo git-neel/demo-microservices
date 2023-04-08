@@ -36,7 +36,7 @@ public class OrderService {
 
         List<OrderLineItems> orderLineItemsList = orderRequest.getOrderLineItemsDTOList()
                 .stream()
-                .map(orderLineItemsDTO -> OrderLineItemsDTO.mapToOrderLineItemsDTO(orderLineItemsDTO))
+                .map(OrderLineItemsDTO::mapToOrderLineItemsDTO)
                 .collect(Collectors.toList());
         Order order = Order.builder().orderNumber(UUID.randomUUID().toString())
                 .orderLineItemsList(orderLineItemsList)
